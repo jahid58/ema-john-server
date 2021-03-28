@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient;
-const port = 5000;
+const port = process.env.PORT || 5000
 require('dotenv').config()
 
 const app = express();
@@ -53,8 +53,6 @@ app.post('/productsWithKeys',(req,res)=>{
 })
 
 
-app.get('/',(req,res)=>{
-    res.send(process.env.DB_HOST)
-})
 
-app.listen(process.env.PORT || port)
+
+app.listen(port)
