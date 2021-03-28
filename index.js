@@ -57,4 +57,4 @@ app.get('/',(req,res)=>{
     res.send(process.env.DB_HOST)
 })
 
-app.listen(process.env.DB_PORT || port)
+app.listen(process.env.PORT || port)
