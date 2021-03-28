@@ -14,7 +14,7 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 client.connect(err => {
-  const collection = client.db(process.env.DB_HOST).collection(process.env.DB_COLLECTION);
+  const collection = client.db(process.env.DB_HOST).collection('fuck');
   const ordersCollection = client.db(process.env.DB_HOST).collection('orders');
   app.post('/addProduct',(req,res)=>{
       const product = req.body
@@ -57,4 +57,4 @@ app.get('/',(req,res)=>{
     res.send(process.env.DB_HOST)
 })
 
-app.listen(port)
+app.listen(process.env.PORT || port)
